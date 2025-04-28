@@ -12,7 +12,7 @@ def get_args():
     parser.add_argument("--val_dataset", default="test") # use val set when evaluate, if test use test set
     parser.add_argument("--resume", default=False, action='store_true')
     parser.add_argument("--resume_ckpt_file", default="", help='resume from ...')
-    parser.add_argument("--alpha_ckpt", default="/data1/ldl/codes/alpha-Reid/model/AlphaCLIP/model_zoo/clip_b16_grit+mim_fultune_4xe.pth", help='alpha weights from ...')
+    parser.add_argument("--alpha_ckpt", default="pretrain/clip_b16_grit+mim_fultune_4xe.pth", help='alpha weights from ...')
     
     ######################## model general settings ########################
     parser.add_argument("--pretrain_choice", default='ViT-B/16') # whether use pretrained model
