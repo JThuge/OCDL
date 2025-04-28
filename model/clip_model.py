@@ -114,7 +114,6 @@ class Bottleneck(nn.Module):
 class AttentionPool2d(nn.Module):
     def __init__(self, spacial_dim: int, embed_dim: int, num_heads: int, output_dim: int = None):
         super().__init__()
-        # self.positional_embedding = nn.Parameter(torch.randn(spacial_dim ** 2 + 1, embed_dim) / embed_dim ** 0.5)
         self.positional_embedding = nn.Parameter(torch.randn((spacial_dim[0] * spacial_dim[1]) + 1, embed_dim)/ embed_dim ** 0.5)
         self.k_proj = nn.Linear(embed_dim, embed_dim)
         self.q_proj = nn.Linear(embed_dim, embed_dim)
@@ -282,7 +281,7 @@ class Transformer(nn.Module):
 class VisionTransformer(nn.Module):
     def __init__(self, input_resolution: Tuple[int, int], patch_size: int, stride_size: int, width: int, layers: int, heads: int, output_dim: int):
         super().__init__()
-        self.input_resolution = input_resolution # (384, 128)
+        self.input_resolution = input_resolution
         self.num_x = (input_resolution[1] - patch_size) // stride_size + 1
         self.num_y = (input_resolution[0] - patch_size) // stride_size + 1
         num_patches = self.num_x * self.num_y
@@ -290,7 +289,7 @@ class VisionTransformer(nn.Module):
         self.output_dim = output_dim
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=width, kernel_size=patch_size, stride=stride_size, bias=False)
 
-        scale = width ** -0.5 # 1/sqrt(768)
+        scale = width ** -0.5
         self.class_embedding = nn.Parameter(scale * torch.randn(width))
         self.positional_embedding = nn.Parameter(scale * torch.randn(num_patches + 1, width))
         self.ln_pre = LayerNorm(width)
@@ -302,9 +301,9 @@ class VisionTransformer(nn.Module):
 
 
     def forward(self, x: torch.Tensor):
-        x = self.conv1(x)  # shape = [*, width, grid, grid]
-        x = x.reshape(x.shape[0], x.shape[1], -1)  # shape = [*, width, grid ** 2]
-        x = x.permute(0, 2, 1)  # shape = [*, grid ** 2, width]
+        x = self.conv1(x)  
+        x = x.reshape(x.shape[0], x.shape[1], -1)  
+        x = x.permute(0, 2, 1) 
         x = torch.cat([self.class_embedding.to(x.dtype) + torch.zeros(x.shape[0], 1, x.shape[-1], dtype=x.dtype, device=x.device), x], dim=1)  # shape = [*, grid ** 2 + 1, width]
         x = x + self.positional_embedding.to(x.dtype)
         x = self.ln_pre(x)
@@ -313,7 +312,6 @@ class VisionTransformer(nn.Module):
         x = self.transformer(x)
         x = x.permute(1, 0, 2)  # LND -> NLD
 
-        # x = self.ln_post(x[:, 0, :])
         x = self.ln_post(x)
 
         if self.proj is not None:
@@ -377,8 +375,6 @@ class CLIP(nn.Module):
         self.ln_final = LayerNorm(transformer_width)
 
         self.text_projection = nn.Parameter(torch.empty(transformer_width, embed_dim))
-        # self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
-
         self.initialize_parameters()
 
     def initialize_parameters(self):
@@ -426,17 +422,13 @@ class CLIP(nn.Module):
         return self.visual(image.type(self.dtype))
 
     def encode_text(self, text):
-        x = self.token_embedding(text).type(self.dtype)  # [batch_size, n_ctx, d_model]
+        x = self.token_embedding(text).type(self.dtype)
 
         x = x + self.positional_embedding.type(self.dtype)
         x = x.permute(1, 0, 2)  # NLD -> LND
         x = self.transformer(x)
         x = x.permute(1, 0, 2)  # LND -> NLD
         x = self.ln_final(x).type(self.dtype)
-
-        # x.shape = [batch_size, n_ctx, transformer.width]
-        # take features from the eot embedding (eot_token is the highest number in each sequence)
-        # x = x[torch.arange(x.shape[0]), text.argmax(dim=-1)] @ self.text_projection
         x = x @ self.text_projection
 
         return x
@@ -445,23 +437,10 @@ class CLIP(nn.Module):
         image_features = self.encode_image(image)
         text_features = self.encode_text(text)
 
-        # # normalized features
-        # image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-        # text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-
-        # # cosine similarity as logits
-        # logit_scale = self.logit_scale.exp()
-        # logits_per_image = logit_scale * image_features @ text_features.t()
-        # logits_per_text = logits_per_image.t()
-
-        # # shape = [global_batch_size, global_batch_size]
-        # return logits_per_image, logits_per_text
-
         return image_features, text_features
     
     
     def load_param(self, state_dict):
-        # 将pretrained_dict里不属于model_dict的键剔除掉
         param_dict =  {k: v for k, v in state_dict.items() if k in self.state_dict()}
 
         if 'model' in param_dict:
