@@ -1,6 +1,6 @@
 # Object-Centric Discriminative Learning for Text-Based Person Retrieval (OCDL)
-Pytorch implementation of the ICASSP 2025 paper "Object-Centric Discriminative Learning for Text-Based Person Retrieval" [Paper](https://ieeexplore.ieee.org/document/10887901)\
-[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/JThuge/OCDL/blob/main/LICENSE)
+Pytorch implementation of the ICASSP 2025 paper "Object-Centric Discriminative Learning for Text-Based Person Retrieval"\
+[Paper](https://ieeexplore.ieee.org/document/10887901)[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/JThuge/OCDL/blob/main/LICENSE)
 
 ## Highlights
 In this paper, we propose a novel framework for text-based person retrieval, termed Object-Centric Discriminative Learning (OCDL), which incorporates person masks to indicate attentive regions, thereby enhancing the model’s focus on the pedestrians in images while suppressing the background noise. Additionally, a novel cross-modal matching loss, namely Soft Angular Distribution Matching (SADM), is introduced to learn discriminative visual and textual representations. Extensive experiments on three widely-used TBPR datasets demonstrate the effectiveness of our approach.
@@ -35,10 +35,10 @@ python train_ocdl.py \
 ```
 
 ## Acknowledgments
-Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA) and [AlphaCLIP](https://github.com/SunzeY/AlphaCLIP). We sincerely appreciate for their contributions.
+Some components of this code implementation are adapted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA) and [AlphaCLIP](https://github.com/SunzeY/AlphaCLIP). We sincerely appreciate for their contributions.
 
 ## Citation
-If you find this code useful for your research, please cite our paper.
+If you find our work useful for your research, please cite our paper.
 
 ```tex
 @inproceedings{li2025object,
@@ -50,3 +50,6 @@ If you find this code useful for your research, please cite our paper.
   organization={IEEE}
 }
 ```
+
+## Contact
+If you have any question, please contact us. E-mail: [jiangding@whu.edu.cn](mailto:jiangding@whu.edu.cn), [yemang@whu.edu.cn](mailto:yemang@whu.edu.cn).
