@@ -19,6 +19,13 @@ easydict
 ### Prepare Datasets
 To be done
 
+### Pretrained Weights
+|   model   |                      google drive link                       |                        openxlab link                         |
+| :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| AlphaCLIP-B/16 | [clip_b16_grit1m+mim_fultune_4xe](https://drive.google.com/file/d/11iDlSAYI_BAi1A_Qz6LTWYHNgPe-UY7I/view?usp=sharing) | [clip_b16_grit1m+mim_fultune_4xe](https://download.openxlab.org.cn/models/SunzeY/AlphaCLIP/weight/clip_b16_grit+mim_fultune_4xe.pth) |
+| AlphaCLIP-L/14 | [clip_l14_grit1m+mim_fultune_6xe](https://drive.google.com/file/d/1JfzOTvjf0tqBtKWwpBJtjYxdHi-06dbk/view?usp=sharing) | [clip_l14_grit1m+mim_fultune_6xe](https://download.openxlab.org.cn/models/SunzeY/AlphaCLIP/weight/clip_l14_grit+mim_fultune_6xe.pth) |
+
+
 ## Training
 
 ```python
