@@ -170,55 +170,9 @@ class OCDLDataset(Dataset):
                     labels.append(0)
             else:
                 labels.append(0)
-        
-        # if all(l == 0 for l in labels):
-        #     # at least mask 1
-        #     labels[1] = tokens[1]
-        #     tokens[1] = mask
 
         return torch.tensor(tokens), torch.tensor(labels)
-    
-    # def _build_random_masked_tokens_and_labels(self, tokens):
-    #     """
-    #     Masking some random tokens for Language Model task with probabilities as in the original BERT paper.
-    #     :param tokens: list of int, tokenized sentence.
-    #     :return: (list of int, list of int), masked tokens and related labels for MLM prediction
-    #     """
-    #     mask = self.tokenizer.encoder["<|mask|>"]
-    #     token_range = list(range(1, len(self.tokenizer.encoder)-3)) # 1 ~ 49405
         
-    #     labels = []
-    #     for i, token in enumerate(tokens):
-    #         if 0 < token < 49405:
-    #             prob = random.random()
-    #             # mask token with 15% probability
-    #             if prob < 0.15:
-    #                 prob /= 0.15
-
-    #                 # 80% randomly change token to mask token
-    #                 if prob < 0.8:
-    #                     tokens[i] = mask
-
-    #                 # 10% randomly change token to random token
-    #                 elif prob < 0.9:
-    #                     tokens[i] = random.choice(token_range)
-
-    #                 # -> rest 10% randomly keep current token
-
-    #                 # append current token to output (we will predict these later)
-    #                 labels.append(token)
-    #             else:
-    #                 # no masking token (will be ignored by loss function later)
-    #                 labels.append(0)
-    #         else:
-    #             labels.append(0)
-        
-    #     if all(l == 0 for l in labels):
-    #         # at least mask 1
-    #         labels[1] = tokens[1]
-    #         tokens[1] = mask
-
-    #     return torch.tensor(tokens), torch.tensor(labels)
 
 class ImageTextDataset(Dataset):
     def __init__(self,
@@ -365,52 +319,4 @@ class ImageTextMLMDataset(Dataset):
             else:
                 labels.append(0)
         
-        # if all(l == 0 for l in labels):
-        #     # at least mask 1
-        #     labels[1] = tokens[1]
-        #     tokens[1] = mask
-
         return torch.tensor(tokens), torch.tensor(labels)
-
-
-    # def _build_random_masked_tokens_and_labels(self, tokens):
-    #     """
-    #     Masking some random tokens for Language Model task with probabilities as in the original BERT paper.
-    #     :param tokens: list of int, tokenized sentence.
-    #     :return: (list of int, list of int), masked tokens and related labels for MLM prediction
-    #     """
-    #     mask = self.tokenizer.encoder["<|mask|>"]
-    #     token_range = list(range(1, len(self.tokenizer.encoder)-3)) # 1 ~ 49405
-        
-    #     labels = []
-    #     for i, token in enumerate(tokens):
-    #         if 0 < token < 49405:
-    #             prob = random.random()
-    #             # mask token with 15% probability
-    #             if prob < 0.15:
-    #                 prob /= 0.15
-
-    #                 # 80% randomly change token to mask token
-    #                 if prob < 0.8:
-    #                     tokens[i] = mask
-
-    #                 # 10% randomly change token to random token
-    #                 elif prob < 0.9:
-    #                     tokens[i] = random.choice(token_range)
-
-    #                 # -> rest 10% randomly keep current token
-
-    #                 # append current token to output (we will predict these later)
-    #                 labels.append(token)
-    #             else:
-    #                 # no masking token (will be ignored by loss function later)
-    #                 labels.append(0)
-    #         else:
-    #             labels.append(0)
-        
-    #     if all(l == 0 for l in labels):
-    #         # at least mask 1
-    #         labels[1] = tokens[1]
-    #         tokens[1] = mask
-
-    #     return torch.tensor(tokens), torch.tensor(labels)
