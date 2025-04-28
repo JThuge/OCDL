@@ -47,7 +47,6 @@ def do_train(start_epoch, args, model, train_loader, evaluator, optimizer,
             batch = {k: v.to(device) for k, v in batch.items()}
 
             ret = model(batch)
-            # print(ret.get('imr_loss', 0))
             total_loss = sum([v for k, v in ret.items() if "loss" in k])
 
             batch_size = batch['images'].shape[0]
