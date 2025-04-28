@@ -42,8 +42,6 @@ def do_train(start_epoch, args, model, train_loader, evaluator, optimizer,
         for meter in meters.values():
             meter.reset()
         model.train()
-        # for param in model.base_model.parameters():
-        #     param.requires_grad = False
 
         for n_iter, batch in enumerate(train_loader):
             batch = {k: v.to(device) for k, v in batch.items()}
