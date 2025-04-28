@@ -2,7 +2,8 @@
 Pytorch implementation of the ICASSP 2025 paper "Object-Centric Discriminative Learning for Text-Based Person Retrieval"[Paper](https://ieeexplore.ieee.org/document/10887901)
 
 ## Highlights
-We propose a novel framework for text-based person retrieval, Object-Centric Discriminative Learning (OCDL), which incorporates person masks to indicate attentive regions, thereby enhancing the model’s focus on the pedestrians in images while suppressing the background noise. Additionally, a novel cross-modal matching loss, namely Soft Angular Distribution Matching (SADM), is introduced to learn discriminative visual and textual representations. Experiments on three widely-used TBPR datasets demonstrate the effectiveness of our approach.\
+We propose a novel framework for text-based person retrieval, Object-Centric Discriminative Learning (OCDL), which incorporates person masks to indicate attentive regions, thereby enhancing the model’s focus on the pedestrians in images while suppressing the background noise. Additionally, a novel cross-modal matching loss, namely Soft Angular Distribution Matching (SADM), is introduced to learn discriminative visual and textual representations. Experiments on three widely-used TBPR datasets demonstrate the effectiveness of our approach.
+\
 ![main](assets/main.png)
 
 ## Usage
