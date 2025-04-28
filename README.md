@@ -52,4 +52,4 @@ If you find our work useful for your research, please cite our paper.
 ```
 
 ## Contact
-If you have any question, please contact us. E-mail: [jiangding@whu.edu.cn](mailto:jiangding@whu.edu.cn), [yemang@whu.edu.cn](mailto:yemang@whu.edu.cn).
+If you have any question, please contact us. E-mail: [lihaiwen@bupt.edu.cn](mailto:lihaiwen@bupt.edu.cn), [liudelong@bupt.edu.cn](mailto:liudelong@bupt.edu.cn).
