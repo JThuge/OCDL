@@ -20,7 +20,8 @@ easydict
 To be done
 
 ### Pretrained Weights
-Download the model weights according to the provided link and place the downloaded files into the `pretrain/` directory, or specify the weights directory using the `--alpha_ckpt` parameter.
+Download the model weights according to the provided link and place the downloaded files into the `pretrain/` directory, or specify the weights directory using the `--alpha_ckpt` parameter. Note that you can select the architecture by specifying `--pretrain_choice` (e.g. `--pretrain_choice ViT-B/16 for AlphaCLIP-B/16`)
+
 |   model   |                      google drive link                       |                        openxlab link                         |
 | :-------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | AlphaCLIP-B/16 | [clip_b16_grit1m+mim_fultune_4xe](https://drive.google.com/file/d/11iDlSAYI_BAi1A_Qz6LTWYHNgPe-UY7I/view?usp=sharing) | [clip_b16_grit1m+mim_fultune_4xe](https://download.openxlab.org.cn/models/SunzeY/AlphaCLIP/weight/clip_b16_grit+mim_fultune_4xe.pth) |
