@@ -27,7 +27,6 @@ class OCDLPer(nn.Module):
         self.logit_scale = torch.ones([]) * (1 / args.temperature) 
             
         if 'id' in args.loss_names:
-            # self.bn_bf_cls = nn.BatchNorm1d(self.embed_dim)
             self.classifier = nn.Linear(self.embed_dim, self.num_classes)
             nn.init.normal_(self.classifier.weight.data, std=0.001)
             nn.init.constant_(self.classifier.bias.data, val=0.0)
@@ -86,21 +85,6 @@ class OCDLPer(nn.Module):
         x = self.ln_post(x)
         return x
 
-    def encode_itm(self, text_embeds_all, image_embeds_all):
-        x = self.cross_former(image_embeds_all, text_embeds_all, text_embeds_all)
-        # print(x.shape)
-        it_output = x[: , 0, :]
-        itm_output = self.itm_head(it_output)
-        return itm_output
-
-    def encode_itm_cat(self, text_embeds_all, image_embeds_all, t_feat_all, i_feat_all):
-        x = self.cross_former(image_embeds_all, text_embeds_all, text_embeds_all)
-        # print(x.shape)
-        it_output = x[: , 0, :]
-        itm_embeds = torch.cat((i_feat_all, it_output, t_feat_all), dim=1)
-        itm_output = self.itm_head(itm_embeds.half())
-        return itm_output
-
     def encode_image(self, image, alpha):
         image_feats = self.base_model.visual(image.half(), alpha.half(), return_attn=False)
         i_feats = image_feats[:, 0:self.args.num_cls, :].float().mean(dim=1)
@@ -109,7 +93,6 @@ class OCDLPer(nn.Module):
     def encode_text(self, text):
         x = self.base_model.encode_text(text)
         return x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
-        # return x.float()
 
     def forward(self, batch):
         ret = dict()
@@ -138,7 +121,6 @@ class OCDLPer(nn.Module):
             
         
         if 'id' in self.current_task:
-            # i_feats = self.bn_bf_cls(i_feats)
             image_logits = self.classifier((i_feats.mean(dim=1)).half()).float()
             text_logits = self.classifier(t_feats.half()).float()
             ret.update({'id_loss':objectives.compute_id(image_logits, text_logits, batch['pids'])*self.args.id_loss_weight})
@@ -159,7 +141,7 @@ class OCDLPer(nn.Module):
 
             x = self.cross_former(mlm_feats, image_feats, image_feats)
 
-            x = self.mlm_head(x)  # [batch_size, text_len, num_colors]
+            x = self.mlm_head(x)
 
             scores = x.float().reshape(-1, self.args.vocab_size)
             mlm_labels = batch['mlm_labels'].reshape(-1)
