@@ -17,7 +17,30 @@ prettytable
 easydict
 ```
 ### Prepare Datasets
-To be done
+We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1X7rmw0TmDjqa0b69qCn_EGSK3KCC-8zs/view?usp=drive_link), which includes the original CUHK-PEDES, ICFG-PEDES, and RSTPReid data, as well as additional person masks data.
+
+Organize them in your dataset root dir folder as follows:
+```|-- your dataset root dir/
+|   |-- CUHK-PEDES/
+|       |-- imgs
+|            |-- cam_a
+|            |-- cam_b
+|            |-- ...
+|       |-- alphas
+|       |-- reid_raw.json
+|       
+|   |-- <ICFG-PEDES>/
+|       |-- imgs
+|            |-- test
+|            |-- train
+|       |-- alphas 
+|       |-- ICFG_PEDES.json
+|
+|   |-- <RSTPReid>/
+|       |-- imgs
+|       |-- alphas
+|       |-- data_captions.json
+```
 
 ### Pretrained Weights
 Download the model weights according to the provided link and place the downloaded files into the `pretrain/` directory (e.g. `pretrain/clip_b16_grit+mim_fultune_4xe.pth`), or specify the weights directory using the `--alpha_ckpt` parameter. Note that you can select the architecture by specifying `--pretrain_choice` (e.g. `--pretrain_choice ViT-B/16` for AlphaCLIP-B/16)
