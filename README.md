@@ -27,13 +27,18 @@ Organize them in your dataset root dir folder as follows:
 |            |-- cam_b
 |            |-- ...
 |       |-- alphas
+|            |-- cam_a
+|            |-- cam_b
+|            |-- ...
 |       |-- reid_raw.json
 |       
 |   |-- <ICFG-PEDES>/
 |       |-- imgs
 |            |-- test
 |            |-- train
-|       |-- alphas 
+|       |-- alphas
+|            |-- test
+|            |-- train
 |       |-- ICFG_PEDES.json
 |
 |   |-- <RSTPReid>/
