@@ -25,7 +25,7 @@ class ICFGPEDES(BaseDataset):
         super(ICFGPEDES, self).__init__()
         self.dataset_dir = op.join(root, self.dataset_dir)
         self.img_dir = op.join(self.dataset_dir, 'imgs/')
-        self.alpha_dir = op.join(self.dataset_dir, 'alphas3_bag/')
+        self.alpha_dir = op.join(self.dataset_dir, 'alphas/')
         self.anno_path = op.join(self.dataset_dir, 'ICFG-PEDES.json')
         self._check_before_run()
 
