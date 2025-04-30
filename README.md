@@ -20,8 +20,8 @@ easydict
 We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1X7rmw0TmDjqa0b69qCn_EGSK3KCC-8zs/view?usp=drive_link), which includes the original CUHK-PEDES, ICFG-PEDES, and RSTPReid data, as well as additional person masks data (saved under the path `alphas/`).
 
 Unzip and organize them in your dataset root dir folder as follows:
-```|-- your dataset root dir/
-|   |-- CUHK-PEDES/
+```|-- your dataset root dir
+|   |-- CUHK-PEDES
 |       |-- imgs
 |            |-- cam_a
 |            |-- cam_b
@@ -32,7 +32,7 @@ Unzip and organize them in your dataset root dir folder as follows:
 |            |-- ...
 |       |-- reid_raw.json
 |       
-|   |-- <ICFG-PEDES>/
+|   |-- ICFG-PEDES
 |       |-- imgs
 |            |-- test
 |            |-- train
@@ -41,7 +41,7 @@ Unzip and organize them in your dataset root dir folder as follows:
 |            |-- train
 |       |-- ICFG_PEDES.json
 |
-|   |-- <RSTPReid>/
+|   |-- RSTPReid
 |       |-- imgs
 |       |-- alphas
 |       |-- data_captions.json
