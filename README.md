@@ -22,30 +22,30 @@ We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1
 Unzip and organize them in your dataset root dir folder as follows:
 ```
 |-- YOUR DATASET ROOT DIR
-|   |-- CUHK-PEDES
-|       |-- imgs
-|            |-- cam_a
-|            |-- cam_b
-|            |-- ...
-|       |-- alphas
-|            |-- cam_a
-|            |-- cam_b
-|            |-- ...
-|       |-- reid_raw.json
-|       
-|   |-- ICFG-PEDES
-|       |-- imgs
-|            |-- test
-|            |-- train
-|       |-- alphas
-|            |-- test
-|            |-- train
-|       |-- ICFG_PEDES.json
-|
-|   |-- RSTPReid
-|       |-- imgs
-|       |-- alphas
-|       |-- data_captions.json
+   |-- CUHK-PEDES
+       |-- imgs
+            |-- cam_a
+            |-- cam_b
+            |-- ...
+       |-- alphas
+            |-- cam_a
+            |-- cam_b
+            |-- ...
+       |-- reid_raw.json
+       
+   |-- ICFG-PEDES
+       |-- imgs
+            |-- test
+            |-- train
+       |-- alphas
+            |-- test
+            |-- train
+       |-- ICFG_PEDES.json
+
+   |-- RSTPReid
+       |-- imgs
+       |-- alphas
+       |-- data_captions.json
 ```
 
 ### Pretrained Weights
