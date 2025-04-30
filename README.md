@@ -20,7 +20,8 @@ easydict
 We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1X7rmw0TmDjqa0b69qCn_EGSK3KCC-8zs/view?usp=drive_link), which includes the original CUHK-PEDES, ICFG-PEDES, and RSTPReid data, as well as additional person masks data (saved under the path `alphas/`).
 
 Unzip and organize them in your dataset root dir folder as follows:
-```|-- your dataset root dir
+```
+|-- YOUR DATASET ROOT DIR
 |   |-- CUHK-PEDES
 |       |-- imgs
 |            |-- cam_a
