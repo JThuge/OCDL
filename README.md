@@ -14,9 +14,12 @@ We use a single NVIDIA A100 GPU for training and evaluation.
 conda create -n ocdl_reid python=3.8
 conda activate ocdl_reid
 pip install torch==1.10.0+cu113 torchvision==0.11.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
+pip install pyyaml
+pip install prettytable
+pip install easydict
 
-prettytable
-easydict
+cd AlphaCLIP
+pip install -e .
 ```
 ### Prepare Datasets
 We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1X7rmw0TmDjqa0b69qCn_EGSK3KCC-8zs/view?usp=drive_link), which includes the original CUHK-PEDES, ICFG-PEDES, and RSTPReid data, as well as additional person masks data (saved under the path `alphas/`).
