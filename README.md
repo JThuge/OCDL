@@ -64,7 +64,7 @@ Download the model weights according to the provided link and place the download
 
 ```python
 # Training on CUHK-PEDES
-Your_DATA_ROOT=""
+Your_DATA_ROOT="data"
 DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
 
 python train_ocdl.py \
