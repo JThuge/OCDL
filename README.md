@@ -61,7 +61,7 @@ Download the model weights according to the provided link and place the download
 
 
 ## Training
-
+Change the `YOUR_DATA_ROOT` to your own path, specify a dataset and start to train your TBPR models.
 ```python
 # Training on text-based person retrieval benchmarks
 YOUR_DATA_ROOT="data"
