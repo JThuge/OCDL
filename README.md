@@ -64,7 +64,7 @@ Download the model weights according to the provided link and place the download
 
 ```python
 # Training on CUHK-PEDES
-Your_DATA_ROOT="data"
+YOUR_DATA_ROOT="data"
 DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
 
 CUDA_VISIBLE_DEVICES=0 \
