@@ -585,8 +585,7 @@ class VisionTransformer(nn.Module):
                     if i != j:
                         attn_mask[i, j] = float('-inf')
         # print(attn_mask.shape, attn_mask[0:num_cls, 0:num_cls])
-        self.transformer = CustomTransformer(width, layers, heads, lora_adapt=lora_adapt, rank=rank, attn_mask=attn_mask, 
-                                             fine_grained=fine_grained, fg_mode=fg_mode, fg_tokens=fg_tokens, num_cls=num_cls, mul_lis=mul_lis, mask_mode=mask_mode)
+        self.transformer = CustomTransformer(width, layers, heads, lora_adapt=lora_adapt, rank=rank, attn_mask=attn_mask, num_cls=num_cls)
 
         self.ln_post = LayerNorm(width)
         self.proj = nn.Parameter(scale * torch.randn(width, output_dim))
