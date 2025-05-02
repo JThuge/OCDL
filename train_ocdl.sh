@@ -1,10 +1,10 @@
 #!/bin/bash
-Your_DATA_ROOT="/data1/ldl/data/Person_img"
+YOUR_DATA_ROOT="data"
 DATASET_NAME="CUHK-PEDES"
 
 CUDA_VISIBLE_DEVICES=0 \
 python train_ocdl.py \
---root_dir $Your_DATA_ROOT \
+--root_dir $YOUR_DATA_ROOT \
 --name OCDL \
 --batch_size 128 \
 --dataset_name $DATASET_NAME \
