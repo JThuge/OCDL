@@ -4,7 +4,7 @@ import torch
 from utils.meter import AverageMeter
 from utils.metrics import Evaluator, Evaluator_OCDL
 from utils.comm import get_rank, synchronize
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 from prettytable import PrettyTable
 
 
@@ -32,7 +32,7 @@ def do_train(start_epoch, args, model, train_loader, evaluator, optimizer,
         "mlm_acc": AverageMeter()
     }
 
-    tb_writer = SummaryWriter(log_dir=args.output_dir)
+    # tb_writer = SummaryWriter(log_dir=args.output_dir)
 
     best_top1 = 0.0
 
