@@ -14,11 +14,7 @@ We use a single NVIDIA A100 GPU for training and evaluation.
 conda create -n ocdl_reid python=3.8
 conda activate ocdl_reid
 pip install torch==1.10.0+cu113 torchvision==0.11.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html
-pip install pyyaml
-pip install prettytable
-pip install easydict
-pip install einops
-pip install loralib
+pip install -r requirements.txt
 
 cd AlphaCLIP
 pip install -e .
