@@ -24,7 +24,7 @@ We have uploaded the dataset to [Google Drive](https://drive.google.com/file/d/1
 
 Unzip and organize them in your dataset root dir folder as follows:
 ```
-|-- YOUR DATASET ROOT DIR
+|-- YOUR_DATA_ROOT
    |-- CUHK-PEDES
        |-- imgs
             |-- cam_a
@@ -63,11 +63,15 @@ Download the model weights according to the provided link and place the download
 ## Training
 
 ```python
+# Training on CUHK-PEDES
+Your_DATA_ROOT=""
+DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
+
 python train_ocdl.py \
---root_dir 'YOUR DATASET ROOT DIR' \
+--root_dir $YOUR_DATA_ROOT \
 --name OCDL \
 --batch_size 128 \
---dataset_name 'CUHK-PEDES' \
+--dataset_name $DATASET_NAME \
 --loss_names 'sadm+id' \
 --img_aug \
 --lr 1e-5 \
