@@ -17,6 +17,8 @@ pip install torch==1.10.0+cu113 torchvision==0.11.0+cu113 -f https://download.py
 pip install pyyaml
 pip install prettytable
 pip install easydict
+pip install einops
+pip install loralib
 
 cd AlphaCLIP
 pip install -e .
