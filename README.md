@@ -63,7 +63,7 @@ Download the model weights according to the provided link and place the download
 ## Training
 
 ```python
-# Training on CUHK-PEDES
+# Training on text-based person retrieval benchmarks
 YOUR_DATA_ROOT="data"
 DATASET_NAME="CUHK-PEDES, ICFG-PEDES or RSTPReid"
 
