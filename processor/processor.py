@@ -75,11 +75,11 @@ def do_train(start_epoch, args, model, train_loader, evaluator, optimizer,
                 info_str += f", Base Lr: {scheduler.get_lr()[0]:.2e}"
                 logger.info(info_str)
         
-        tb_writer.add_scalar('lr', scheduler.get_lr()[0], epoch)
-        tb_writer.add_scalar('temperature', ret['temperature'], epoch)
-        for k, v in meters.items():
-            if v.avg > 0:
-                tb_writer.add_scalar(k, v.avg, epoch)
+        # tb_writer.add_scalar('lr', scheduler.get_lr()[0], epoch)
+        # tb_writer.add_scalar('temperature', ret['temperature'], epoch)
+        # for k, v in meters.items():
+        #     if v.avg > 0:
+        #         tb_writer.add_scalar(k, v.avg, epoch)
 
 
         scheduler.step()
