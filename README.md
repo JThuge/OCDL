@@ -11,8 +11,10 @@ We propose a novel framework for text-based person retrieval, Object-Centric Dis
 ### Requirements
 We use a single NVIDIA A100 GPU for training and evaluation.
 ```
-pytorch 1.9.0
-torchvision 0.10.0
+conda create -n ocdl_reid python=3.8
+conda activate ocdl_reid
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+
 prettytable
 easydict
 ```
