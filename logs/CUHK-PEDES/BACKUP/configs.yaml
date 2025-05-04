@@ -35,12 +35,12 @@ num_epoch: 60
 num_instance: 2
 num_workers: 8
 optimizer: Adam
-output_dir: logs/CUHK-PEDES/OCDL
+output_dir: logs/CUHK-PEDES/2024-06-08_00:46:44_OCDL
 power: 0.9
 pretrain_choice: ViT-B/16
 resume: false
 resume_ckpt_file: ''
-root_dir: null
+root_dir: /data/PersonImg
 sampler: identity
 stride_size: 16
 target_lr: 0
