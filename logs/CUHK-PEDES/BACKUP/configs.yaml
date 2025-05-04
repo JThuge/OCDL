@@ -16,7 +16,7 @@ img_size: !!python/tuple
 itm_loss_weight: 1.0
 local_rank: 0
 log_period: 100
-loss_names: id+sdm
+loss_names: id+sadm
 lr: 1.0e-05
 lr_factor: 5.0
 lrscheduler: cosine
