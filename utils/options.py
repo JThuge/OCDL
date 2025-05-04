@@ -31,7 +31,7 @@ def get_args():
     parser.add_argument("--MLM", default=False, action='store_true', help="whether to use Mask Language Modeling dataset")
 
     ######################## loss settings ########################
-    parser.add_argument("--loss_names", default='sdm+id+mlm', help="which loss to use ['mlm', 'cmpm', 'id', 'itc', 'sdm', 'cir', 'tal', 'ort', 'obj', 'imr']")
+    parser.add_argument("--loss_names", default='id+sadm', help="which loss to use ['mlm', 'cmpm', 'id', 'itc', 'sdm', 'cir', 'tal', 'ort', 'obj', 'imr']")
     parser.add_argument("--mlm_loss_weight", type=float, default=1.0, help="mlm loss weight")
     parser.add_argument("--id_loss_weight", type=float, default=1.0, help="id loss weight")
 
