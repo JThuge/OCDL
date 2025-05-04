@@ -40,7 +40,7 @@ power: 0.9
 pretrain_choice: ViT-B/16
 resume: false
 resume_ckpt_file: ''
-root_dir: /data/PersonImg
+root_dir: /data/Person_img
 sampler: identity
 stride_size: 16
 target_lr: 0
