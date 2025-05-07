@@ -17,28 +17,16 @@ import shutil
 import os
 
 def backup_code(source_dir, log_dir):
-    """
-    将指定目录下的代码文件复制到log目录中，但不复制logs目录下的内容
-    :param source_dir: 要备份的源代码目录
-    :param log_dir: 备份文件存储的log目录
-    """
-    # 设置备份路径
     code_backup_dir = os.path.join(log_dir, 'code_backup')
-
-    # 如果备份目录不存在，则创建该目录
     if not os.path.exists(code_backup_dir):
         os.makedirs(code_backup_dir)
 
-    # 计算源目录和备份目录的公共前缀
     common_prefix = os.path.commonprefix([source_dir, code_backup_dir])
 
-    # 遍历指定目录下的所有文件和文件夹
     for root, dirs, files in os.walk(source_dir):
-        # 如果当前目录为logs文件夹，则跳过该目录及其子目录
         if os.path.basename(root) == 'logs':
             dirs[:] = []
             continue
-        # 否则，复制该目录下的所有文件和文件夹到备份目录中
         for file in files:
             source_file = os.path.join(root, file)
             backup_file = os.path.join(code_backup_dir, os.path.relpath(source_file, common_prefix))
