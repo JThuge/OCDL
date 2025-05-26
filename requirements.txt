@@ -3,3 +3,5 @@ prettytable==3.11.0
 easydict==1.13
 einops==0.8.1
 loralib==0.1.2
+ftfy
+regex
