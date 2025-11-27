@@ -1,4 +1,4 @@
-# Object-Centric Discriminative Learning for Text-Based Person Retrieval (OCDL)
+# OCDL
 Offitial implementation of the ICASSP 2025 paper "Object-Centric Discriminative Learning for Text-Based Person Retrieval"[Paper](https://ieeexplore.ieee.org/document/10887901)
 
 ## Highlights
